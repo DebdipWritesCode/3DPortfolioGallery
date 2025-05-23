@@ -444,28 +444,28 @@ document.addEventListener("keydown", (e) => {
       e.preventDefault();
       // cube.position.y += 0.1;
       // camera.translateZ(-0.5);
-      controls.moveForward(0.5);
+      controls.moveForward(1.0);
       break;
     case "s":
     case "ArrowDown":
       e.preventDefault();
       // cube.position.y -= 0.1;
       // camera.translateZ(0.5);
-      controls.moveForward(-0.5);
+      controls.moveForward(-1.0);
       break;
     case "d":
     case "ArrowRight":
       e.preventDefault();
       // cube.position.x += 0.1;
       // camera.translateX(0.5);
-      controls.moveRight(0.5);
+      controls.moveRight(1.0);
       break;
     case "a":
     case "ArrowLeft":
       e.preventDefault();
       // cube.position.x -= 0.1;
       // camera.translateX(-0.5);
-      controls.moveRight(-0.5);
+      controls.moveRight(-1.0);
       break;
     default:
       break;
