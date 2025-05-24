@@ -150,17 +150,17 @@ function createPainting(imageURL, width, height, position) {
 const paintingsGroup = new THREE.Group();
 const paintingPositions = ["front", "left", "right", "back"];
 const paintingImages = [
-  "./artworks/2.png",
   "./artworks/1.png",
+  "./artworks/2.png",
   "./artworks/3.png",
   "./artworks/3.jpg",
   "./artworks/4.png",
   "./artworks/5.png",
   "./artworks/6.png",
-  "./artworks/7.jpg",
-  "./artworks/8.jpg",
+  "./artworks/7.png",
+  "./artworks/8.png",
   "./artworks/9.png",
-  "./artworks/10.jpg",
+  "./artworks/10.png",
 ];
 
 // Lights for paintings
@@ -184,7 +184,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        13,
+        14,
         new THREE.Vector3(xPos, 13, -29.5)
       );
       paintingsGroup.add(painting);
@@ -211,7 +211,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        12,
+        15,
         new THREE.Vector3(39.5, 13, zPos)
       );
       painting.rotation.y = -Math.PI / 2;
@@ -222,9 +222,14 @@ for (let pos of paintingPositions) {
   } else if (pos == "back") {
     let xPos = -25;
     for (let i = 8; i < 11; i++) {
-      const painting = createPainting(
+      const painting = i != 10 ? createPainting(
         paintingImages[i],
         15,
+        18, // Width, height
+        new THREE.Vector3(xPos, 13, 29.5)
+      ) : createPainting(
+        paintingImages[i],
+        17,
         18, // Width, height
         new THREE.Vector3(xPos, 13, 29.5)
       );

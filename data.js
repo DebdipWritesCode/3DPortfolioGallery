@@ -1,9 +1,9 @@
 export const paintingData = [
   {
-    title: "My Education: Where It All Began",
-    description: `IIIT Nagpur — the place that turned curiosity into code.
-                  I'm doing my B.Tech in Computer Science here (2023–2027), and it's been more than just classes. From cracking DSA problems to losing sleep over AI models, this place gave me the tools and the hustle.
-                  Also, yes — it’s an Institute of National Importance. Kinda proud of that.`,
+    title: "My Experiences: Crafting Code for Tomorrow",
+    description: `Code isn’t just logic — it’s a superpower to solve problems.
+      From building AI tools as a Gen AI Intern at Banao, to delivering solutions as a Freelance Developer and Writer on Upwork, I’ve shipped real-world projects that make a difference.
+      It’s not just code. It’s impact, at scale.`,
   },
   {
     title: "The Artist Behind the Code",
@@ -36,14 +36,17 @@ export const paintingData = [
         From brainstorming sessions to sleepless nights, I’ve seen firsthand how mentorship and collaboration can light the spark in future innovators.`,
   },
   {
-    title: "The Night Watch",
-    description:
-      "Militia Company of District II under the Command of Captain Frans Banninck Cocq, also known as The Shooting Company of Frans Banning Cocq and Willem van Ruytenburch, but commonly referred to as The Night Watch, is a 1642 painting by Rembrandt van Rijn.",
+    title: "My MUN Journey: Words that Build Worlds",
+    description: `I believe words are as powerful as code.
+        From the chambers of IITs to chairing conferences, my MUN journey has been a masterclass in discourse, diplomacy, and daring to speak up.
+        2 Special Mentions, 1 Honorable Mention — and countless learnings that shaped how I think, lead, and collaborate.
+        Got an idea you’re passionate about? Let’s talk.`,
   },
   {
-    title: "The Mona Lisa",
-    description:
-      "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci. Considered an archetypal masterpiece of the Italian Renaissance, it has been described as the most famous, most visited, most sung about, most parodied work of art in the world.",
+    title: "The Unfinished Canvas",
+    description: `My story isn’t done — it’s an evolving canvas, filled with code, creativity, and a touch of chaos.
+      From AI to Web3, and everything in between, I’m exploring what’s next — one brushstroke at a time.
+      Got an idea or a dream? Let’s bring it to life.`,
   },
   {
     title: "My Masterpieces: A Glimpse",
@@ -52,8 +55,9 @@ export const paintingData = [
       Each one taught me something new. Each one pushed me further.`,
   },
   {
-    title: "The Kiss",
-    description:
-      "The Kiss is an oil painting, with added silver and gold leaf by the Austrian Symbolist painter Gustav Klimt, and was painted between 1907 and 1908 during the height of Klimt's 'Golden Period'.",
+    title: "My Education: Where It All Began",
+    description: `IIIT Nagpur — the place that turned curiosity into code.
+                  I'm doing my B.Tech in Computer Science here (2023–2027), and it's been more than just classes. From cracking DSA problems to losing sleep over AI models, this place gave me the tools and the hustle.
+                  Also, yes — it’s an Institute of National Importance. Kinda proud of that.`,
   },
 ];
