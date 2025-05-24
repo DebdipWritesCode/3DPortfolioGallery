@@ -32,7 +32,7 @@ Get close to a painting in the gallery, and you'll see its story unfold.
 1️⃣ Clone the repository:
 
 ```bash
-git clone https://github.com/DebdipWritesCode/
+git clone https://github.com/DebdipWritesCode/3DPortfolioGallery.git
 ```
 
 2️⃣ Install dependencies:
