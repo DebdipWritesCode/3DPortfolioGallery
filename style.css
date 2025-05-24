@@ -96,7 +96,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 400px;
   padding: 15px;
   margin: 15px 15px;
   background: linear-gradient(135deg, #456789a7 0%, #89abcda9 100%);
@@ -108,8 +108,8 @@ body {
 }
 
 .painting-info p {
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 22px;
+  font-weight: 600;
   text-align: justify;
 }
 

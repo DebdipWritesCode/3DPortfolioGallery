@@ -150,16 +150,16 @@ function createPainting(imageURL, width, height, position) {
 const paintingsGroup = new THREE.Group();
 const paintingPositions = ["front", "left", "right", "back"];
 const paintingImages = [
-  "./artworks/Project Thumbnail.png",
-  "./artworks/1.jpg",
-  "./artworks/2.jpg",
+  "./artworks/2.png",
+  "./artworks/1.png",
+  "./artworks/3.png",
   "./artworks/3.jpg",
-  "./artworks/4.jpg",
+  "./artworks/4.png",
   "./artworks/5.jpg",
   "./artworks/6.jpg",
   "./artworks/7.jpg",
   "./artworks/8.jpg",
-  "./artworks/9.jpg",
+  "./artworks/9.png",
   "./artworks/10.jpg",
 ];
 
@@ -167,10 +167,11 @@ const paintingImages = [
 const lightsGroup = new THREE.Group();
 scene.add(lightsGroup);
 function addLightAbovePainting(painting) {
-  const light = new THREE.PointLight(0xffffff, 380, 70); // White light (color, intensity, distance)
+  const light = new THREE.PointLight(0xffffff, 250, 70); // White light (color, intensity, distance)
+  light.castShadow = true; // Enable shadow casting
   light.position.set(
     painting.position.x,
-    painting.position.y,
+    painting.position.y + 2,
     painting.position.z
   ); // Position above the painting
   lightsGroup.add(light);
@@ -183,7 +184,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        8,
+        13,
         new THREE.Vector3(xPos, 13, -29.5)
       );
       paintingsGroup.add(painting);
@@ -196,7 +197,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        8,
+        15,
         new THREE.Vector3(-39.5, 13, zPos)
       );
       painting.rotation.y = Math.PI / 2;
@@ -224,7 +225,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        8,
+        18, // Width, height
         new THREE.Vector3(xPos, 13, 29.5)
       );
       painting.rotation.y = Math.PI;
@@ -438,33 +439,50 @@ loader.load(
 document.addEventListener("keydown", (e) => {
   let clickedKey = e.key;
   const previousCameraPosition = camera.position.clone();
+
+  // Check for Alt + G
+  if (e.altKey && clickedKey.toLowerCase() === "g") {
+    window.open("https://github.com/DebdipWritesCode", "_blank");
+    return; // Exit early so no further key handling is done
+  }
+
+  if (e.altKey && clickedKey.toLowerCase() === "l") {
+    window.open("https://www.linkedin.com/in/debdip-mukherjee404/", "_blank");
+    return; // Exit early so no further key handling is done
+  }
+
+  if (e.altKey && clickedKey.toLowerCase() === "x") {
+    window.open(
+      "https://x.com/DebdipMukherje4?t=TINqiNLZXjcBFs1Bzjj8qw&s=09",
+      "_blank"
+    );
+    return; // Exit early so no further key handling is done
+  }
+
+  if (e.altKey && clickedKey.toLowerCase() === "m") {
+    window.open("mailto:debdipmukherjee52@gmail.com", "_blank");
+    return; // Exit early so no further key handling is done
+  }
+
   switch (clickedKey) {
     case "w":
     case "ArrowUp":
       e.preventDefault();
-      // cube.position.y += 0.1;
-      // camera.translateZ(-0.5);
       controls.moveForward(1.0);
       break;
     case "s":
     case "ArrowDown":
       e.preventDefault();
-      // cube.position.y -= 0.1;
-      // camera.translateZ(0.5);
       controls.moveForward(-1.0);
       break;
     case "d":
     case "ArrowRight":
       e.preventDefault();
-      // cube.position.x += 0.1;
-      // camera.translateX(0.5);
       controls.moveRight(1.0);
       break;
     case "a":
     case "ArrowLeft":
       e.preventDefault();
-      // cube.position.x -= 0.1;
-      // camera.translateX(-0.5);
       controls.moveRight(-1.0);
       break;
     default:

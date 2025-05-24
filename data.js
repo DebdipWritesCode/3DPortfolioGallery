@@ -1,28 +1,27 @@
 export const paintingData = [
   {
-    title: "The Starry Night",
-    description:
-      "The Starry Night is an oil on canvas painting by Dutch Post-Impressionist painter Vincent van Gogh. Painted in June 1889, it depicts the view from the east-facing window of his asylum room at Saint-Rémy-de-Provence, just before sunrise, with the addition of an ideal village.",
+    title: "My Education: Where It All Began",
+    description: `IIIT Nagpur — the place that turned curiosity into code.
+                  I'm doing my B.Tech in Computer Science here (2023–2027), and it's been more than just classes. From cracking DSA problems to losing sleep over AI models, this place gave me the tools and the hustle.
+                  Also, yes — it’s an Institute of National Importance. Kinda proud of that.`,
   },
   {
-    title: "The Persistence of Memory",
+    title: "The Artist Behind the Code",
     description:
-      "The Persistence of Memory is a 1931 painting by artist Salvador Dalí and one of the most recognizable works of Surrealism. First shown at the Julien Levy Gallery in 1932, the painting has been in the collection of the Museum of Modern Art (MoMA) in New York City since 1934.",
+      "Hey, I'm Debdip — a developer who loves building things that live at the intersection of logic and creativity. Currently studying at IIIT Nagpur, I’m always chasing ideas that mix tech, design, and a little bit of madness. This portfolio? Just one of those experiments.",
   },
   {
-    title: "The Scream",
-    description:
-      "The Scream is the popular name given to a composition created by Norwegian Expressionist artist Edvard Munch in 1893. The original German title given by Munch to his work was Der Schrei der Natur (The Scream of Nature).",
+    title: "My Skills: Brushes of the Trade",
+    description: `Every creator has their tools — these are mine.
+      From writing clean React code to training TensorFlow models, I love exploring new stacks and stitching tech together like a digital artist.
+      And yeah, there's always room for a new color.`,
   },
   {
-    title: "The Birth of Venus",
+    title: "My Socials: The Web of Me",
     description:
-      "The Birth of Venus is a painting by the Italian artist Sandro Botticelli, probably made in the mid 1480s. It depicts the goddess Venus arriving at the shore after her birth, when she had emerged from the sea fully-grown.",
-  },
-  {
-    title: "The Creation of Adam",
-    description:
-      "The Creation of Adam is a fresco painting by Italian artist Michelangelo, which forms part of the Sistine Chapel's ceiling, painted c. 1508–1512. It illustrates the Biblical creation narrative from the Book of Genesis in which God gives life to Adam and Eve.",
+      `I live here — in the code, on the web, between the keys.
+      Whether you're scouting talent, swapping ideas, or just vibing with cool projects, these are your portals into my world.
+      Let’s make the web a little smaller. One link at a time.`,
   },
   {
     title: "Guernica",
@@ -43,6 +42,12 @@ export const paintingData = [
     title: "The Mona Lisa",
     description:
       "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci. Considered an archetypal masterpiece of the Italian Renaissance, it has been described as the most famous, most visited, most sung about, most parodied work of art in the world.",
+  },
+  {
+    title: "My Masterpieces: A Glimpse",
+    description: `These aren't just projects — they're experiments, solutions, and sometimes, late-night obsessions.
+      From building this very 3D gallery, to crafting an AI that can solve LeetCode problems, to predicting cricket scores with machine learning — this wall holds a mix of the practical, the playful, and the purposeful.
+      Each one taught me something new. Each one pushed me further.`,
   },
   {
     title: "The Kiss",
