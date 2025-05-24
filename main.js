@@ -38,7 +38,7 @@ renderer.setClearColor("#ffffff", 0.1); // Background color
 document.body.appendChild(renderer.domElement);
 
 //Lights
-let ambientLight = new THREE.AmbientLight(0xffffff, 1); // Soft white light( color, intensity )
+let ambientLight = new THREE.AmbientLight(0xffffff, 1.305); // Soft white light( color, intensity )
 scene.add(ambientLight);
 
 // let sunLight = new THREE.DirectionalLight(0xffffff, 2); // White light( color, intensity )
@@ -155,8 +155,8 @@ const paintingImages = [
   "./artworks/3.png",
   "./artworks/3.jpg",
   "./artworks/4.png",
-  "./artworks/5.jpg",
-  "./artworks/6.jpg",
+  "./artworks/5.png",
+  "./artworks/6.png",
   "./artworks/7.jpg",
   "./artworks/8.jpg",
   "./artworks/9.png",
@@ -167,7 +167,7 @@ const paintingImages = [
 const lightsGroup = new THREE.Group();
 scene.add(lightsGroup);
 function addLightAbovePainting(painting) {
-  const light = new THREE.PointLight(0xffffff, 250, 70); // White light (color, intensity, distance)
+  const light = new THREE.PointLight(0xffffff, 200, 70); // White light (color, intensity, distance)
   light.castShadow = true; // Enable shadow casting
   light.position.set(
     painting.position.x,
@@ -197,7 +197,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        15,
+        17,
         new THREE.Vector3(-39.5, 13, zPos)
       );
       painting.rotation.y = Math.PI / 2;
@@ -211,7 +211,7 @@ for (let pos of paintingPositions) {
       const painting = createPainting(
         paintingImages[i],
         15,
-        8,
+        12,
         new THREE.Vector3(39.5, 13, zPos)
       );
       painting.rotation.y = -Math.PI / 2;
@@ -456,6 +456,11 @@ document.addEventListener("keydown", (e) => {
       "https://x.com/DebdipMukherje4?t=TINqiNLZXjcBFs1Bzjj8qw&s=09",
       "_blank"
     );
+    return; // Exit early so no further key handling is done
+  }
+
+  if (e.altKey && clickedKey.toLowerCase() === "c") {
+    window.open("https://leetcode.com/u/Debdip129/", "_blank");
     return; // Exit early so no further key handling is done
   }
 

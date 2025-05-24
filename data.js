@@ -18,20 +18,22 @@ export const paintingData = [
   },
   {
     title: "My Socials: The Web of Me",
-    description:
-      `I live here — in the code, on the web, between the keys.
+    description: `I live here — in the code, on the web, between the keys.
       Whether you're scouting talent, swapping ideas, or just vibing with cool projects, these are your portals into my world.
       Let’s make the web a little smaller. One link at a time.`,
   },
   {
-    title: "Guernica",
-    description:
-      "Guernica is a large 1937 oil painting on canvas by Spanish artist Pablo Picasso. One of Picasso's best known works, Guernica is regarded by many art critics as one of the most moving and powerful anti-war paintings in history.",
+    title: "My DSA Journey: Patterns in Chaos",
+    description: `I love that feeling when code just clicks — when chaos turns into clarity.
+      Solving 450+ LeetCode problems has taught me that every bug is a lesson, every pattern is a puzzle, and every solution is an art form.
+      Data structures? Algorithms? Let’s code.
+      Alt + C if you want to see how I break down problems — one line at a time.`,
   },
   {
-    title: "The Last Supper",
-    description:
-      "The Last Supper is a late 15th-century mural painting by Italian artist Leonardo da Vinci housed by the refectory of the Convent of Santa Maria delle Grazie in Milan, Italy. It is one of the Western world's most recognizable paintings.",
+    title: "My College Club: Elevate and Empower",
+    description: `I didn’t just code — I built a community.
+        Over a year as Co-Lead at Elevate, I guided 200+ students, organized 5+ workshops and hackathons, and turned ideas into impact.
+        From brainstorming sessions to sleepless nights, I’ve seen firsthand how mentorship and collaboration can light the spark in future innovators.`,
   },
   {
     title: "The Night Watch",
