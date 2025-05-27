@@ -6,7 +6,7 @@ Welcome to **Portfolio Gallery** — a creative blend of technology and storytel
 
 Step into an interactive 3D gallery where each painting tells a part of my story. From projects and experiences to passions and dreams, this portfolio is more than just code — it's a space that reflects who I am.
 
-Get close to a painting in the gallery, and you'll see its story unfold.
+Get close to a painting in the gallery, and you'll see its true story unfold.
 
 ---
 
