@@ -9,6 +9,31 @@
 </head>
 
 <body>
+  <div class="gallery-loader" id="gallery-loader" role="status" aria-live="polite" aria-label="Loading gallery assets">
+    <div class="loader-layout">
+      <div class="loader-header">
+        <span>Debdip Mukherjee</span>
+        <span id="loader-percent">0%</span>
+      </div>
+      <div class="loader-floorplan" aria-hidden="true">
+        <span class="loader-wall wall-top"></span>
+        <span class="loader-wall wall-right"></span>
+        <span class="loader-wall wall-bottom"></span>
+        <span class="loader-wall wall-left"></span>
+        <span class="loader-art art-1"></span>
+        <span class="loader-art art-2"></span>
+        <span class="loader-art art-3"></span>
+        <span class="loader-art art-4"></span>
+        <span class="loader-camera"></span>
+      </div>
+      <div class="loader-footer">
+        <p id="loader-status">Loading gallery assets</p>
+        <div class="loader-progress" aria-hidden="true">
+          <span id="loader-progress-bar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="background_menu" id="background_menu">
     <div id="menu">
       <div id="img-container">

@@ -2,11 +2,72 @@ import { GLTFLoader, PointerLockControls } from "three-stdlib";
 import "./style.css";
 import * as THREE from "three";
 import { paintingData } from "./data";
+import { getLoadingPercent, getLoadingStatus } from "./loader-progress.js";
 
 //Audio
 const bgAudio = new Audio("./audio/bg.mp3");
 bgAudio.loop = true;
 bgAudio.volume = 0.0;
+
+const loaderOverlay = document.getElementById("gallery-loader");
+const loaderPercent = document.getElementById("loader-percent");
+const loaderStatus = document.getElementById("loader-status");
+const loaderProgressBar = document.getElementById("loader-progress-bar");
+const playBtn = document.getElementById("play-btn");
+let currentLoadingPercent = 0;
+let galleryReady = false;
+let hasLoadError = false;
+
+if (playBtn) {
+  playBtn.disabled = true;
+  playBtn.setAttribute("aria-disabled", "true");
+}
+
+function updateLoadingUI(percent, hasError = false) {
+  currentLoadingPercent = percent;
+
+  if (loaderPercent) {
+    loaderPercent.textContent = `${percent}%`;
+  }
+
+  if (loaderStatus) {
+    loaderStatus.textContent = getLoadingStatus(percent, hasError);
+  }
+
+  if (loaderProgressBar) {
+    loaderProgressBar.style.width = `${percent}%`;
+  }
+}
+
+function enableGalleryEntry() {
+  if (playBtn) {
+    playBtn.disabled = false;
+    playBtn.removeAttribute("aria-disabled");
+  }
+
+  if (loaderOverlay) {
+    loaderOverlay.classList.add("is-hidden");
+    window.setTimeout(() => loaderOverlay.remove(), 800);
+  }
+}
+
+const loadingManager = new THREE.LoadingManager();
+loadingManager.onStart = () => updateLoadingUI(0);
+loadingManager.onProgress = (_url, itemsLoaded, itemsTotal) => {
+  updateLoadingUI(getLoadingPercent(itemsLoaded, itemsTotal), hasLoadError);
+};
+loadingManager.onError = (url) => {
+  hasLoadError = true;
+  console.error(`Failed to load asset: ${url}`);
+  updateLoadingUI(currentLoadingPercent, true);
+};
+loadingManager.onLoad = () => {
+  galleryReady = true;
+  updateLoadingUI(100, hasLoadError);
+  window.setTimeout(enableGalleryEntry, hasLoadError ? 1400 : 600);
+};
+
+const textureLoader = new THREE.TextureLoader(loadingManager);
 
 const scene = new THREE.Scene();
 
@@ -52,7 +113,7 @@ scene.add(ambientLight);
 // scene.add(cube);
 
 // Texture of the floor
-let floorTexture = new THREE.TextureLoader().load("./images/TestCeiling.avif");
+let floorTexture = textureLoader.load("./images/TestCeiling.avif");
 
 // Create the floor plane
 let planeGeometry = new THREE.PlaneGeometry(80, 60); // Width, height, width segments?, height segments?
@@ -71,7 +132,7 @@ scene.add(floorPlane); // Add the plane to the scene
 const wallGroup = new THREE.Group(); // Create a group for the walls
 
 //Create wall materials with realistic color and texture
-const wallTexture = new THREE.TextureLoader().load("./images/wall.jpg");
+const wallTexture = textureLoader.load("./images/wall.jpg");
 wallTexture.wrapS = THREE.RepeatWrapping; // Repeat the texture horizontally
 wallTexture.wrapT = THREE.RepeatWrapping; // Repeat the texture vertically
 wallTexture.repeat.set(1, 1); // Repeat the texture 1 time horizontally and 1 time vertically
@@ -116,7 +177,7 @@ wallGroup.add(backWall); // Add the back wall to the group
 scene.add(wallGroup); // Add the group to the scene
 
 // Create the ceiling
-const ceilingTexture = new THREE.TextureLoader().load("./images/ceiling.jpg"); // Load the ceiling texture
+const ceilingTexture = textureLoader.load("./images/ceiling.jpg"); // Load the ceiling texture
 
 const ceilingGeometry = new THREE.PlaneGeometry(80, 60); // Width, height, width segments?, height segments?
 const ceilingMaterial = new THREE.MeshLambertMaterial({ map: ceilingTexture }); // Texture material with realistic color
@@ -134,7 +195,6 @@ for (let i = 0; i < wallGroup.children.length; i++) {
 }
 
 function createPainting(imageURL, width, height, position) {
-  const textureLoader = new THREE.TextureLoader();
   const paintingImage = textureLoader.load(imageURL);
   const paintingMaterial = new THREE.MeshBasicMaterial({
     map: paintingImage,
@@ -299,13 +359,18 @@ function showMenu() {
 
 // Lock the pointer (controls are activated) and hide menu on click
 function startExperience() {
-  bgAudio.play();
+  if (!galleryReady) {
+    return;
+  }
+
+  bgAudio.play().catch((error) => {
+    console.error("Audio playback failed:", error);
+  });
   controls.lock();
   hideMenu();
 }
 
-const playBtn = document.getElementById("play-btn");
-playBtn.addEventListener("click", startExperience);
+playBtn?.addEventListener("click", startExperience);
 
 controls.addEventListener("unlock", () => {
   showMenu();
@@ -331,7 +396,7 @@ function checkCollision() {
   return false;
 }
 
-const loader = new GLTFLoader();
+const loader = new GLTFLoader(loadingManager);
 loader.load(
   "./models/plants.glb",
   (gltf) => {
